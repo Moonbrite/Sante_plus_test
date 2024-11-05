@@ -31,6 +31,9 @@ class Appointment
     #[ORM\Column]
     private ?bool $isCancel = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $hour = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -92,6 +95,18 @@ class Appointment
     public function setCancel(bool $isCancel): static
     {
         $this->isCancel = $isCancel;
+
+        return $this;
+    }
+
+    public function getHour(): ?string
+    {
+        return $this->hour;
+    }
+
+    public function setHour(string $hour): static
+    {
+        $this->hour = $hour;
 
         return $this;
     }

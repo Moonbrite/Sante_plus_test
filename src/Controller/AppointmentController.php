@@ -31,9 +31,9 @@ final class AppointmentController extends AbstractController
         $form->handleRequest($request);
 
 
-
-
         if ($form->isSubmitted() && $form->isValid()) {
+            $appointment->setCancel($form->get('is_cancel')->getData());
+            $appointment->setHour($form->get('hour')->getData());
             $entityManager->persist($appointment);
             $entityManager->flush();
 

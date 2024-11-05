@@ -20,6 +20,7 @@ class AppointmentFixtures extends Fixture implements DependentFixtureInterface
          $appointment->setCancel(false);
          $appointment->setUser($this->getReference('patient'));
          $appointment->setDayOfAppointment(new \DateTime(now()->format('d-m-Y')));
+         $appointment->setHour("9H30");
          $manager->persist($appointment);
 
         $manager->flush();

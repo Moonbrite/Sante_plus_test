@@ -9,6 +9,8 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -35,8 +37,28 @@ class AppointmentType extends AbstractType
                         ->setParameter('role', '%' .$role. '%');
                 }
             ])
-            ->add('is_cancel',CheckboxType::class)
+            ->add('is_cancel',CheckboxType::class,[
+                'mapped'=> false,
+                'required'=>false,
+                ]
+            )
+            ->add('hour',ChoiceType::class,[
+                'mapped' => false,
+                'choices'  => [
+                    '9H' => '9h',
+                    '10H' => '10H',
+                    '11H' => '11H',
+                    '12H' => '12H',
+                    '13H' => '13H',
+                    '14H' => '14H',
+                    '15H' => '15H',
+                    '16H' => '16H',
+                    '17H' => '17H',
+                ],
+            ])
+            ->add('note',TextType::class, [
 
+            ])
         ;
     }
 

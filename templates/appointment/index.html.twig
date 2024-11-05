@@ -10,6 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Day_of_appointment</th>
+                <th>Hour</th>
                 <th>Name Medecin</th>
                 <th>Name Patient</th>
                 <th>Is Cancel</th>
@@ -21,6 +22,7 @@
             <tr>
                 <td>{{ appointment.id }}</td>
                 <td>{{ appointment.dayOfAppointment ? appointment.dayOfAppointment|date('d-m-Y') : '' }}</td>
+                <td>{{ appointment.hour }}</td>
                 <td>{{ appointment.getMedecin }}</td>
                 <td>{{ appointment.getUser.name }}</td>
                 <td>
