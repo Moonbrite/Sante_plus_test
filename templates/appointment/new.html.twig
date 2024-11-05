@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Appointment{% endblock %}
+
+{% block body %}
+    <h1>Create new Appointment</h1>
+
+    {{ form_start(form, {'attr': {'class': 'flex-column d-flex justify-content-center align-items-center'}}) }}
+
+    {{ form_widget(form.day_of_appointment, {'attr': {'placeholder': 'day_of_appointment', 'class': 'my-3 mt-5'}}) }}
+
+    {{ form_widget(form.medecin, {'attr': {'placeholder': 'medecin', 'class': 'my-3'}}) }}
+
+    {{ form_widget(form.user, {'attr': {'placeholder': 'user', 'class': 'my-3'}}) }}
+
+
+    <button class="btn my-3">{{ button_label|default('Sauvegarder') }}</button>
+
+    {{ form_end(form) }}
+
+
+    <a href="{{ path('app_appointment_index') }}">back to list</a>
+{% endblock %}
