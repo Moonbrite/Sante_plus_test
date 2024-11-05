@@ -11,6 +11,28 @@
         {% endblock %}
     </head>
     <body>
+
+        <header>
+            <nav>
+                <ul>
+
+
+                    <li>
+                        <a href="{{ path('app_appointment_index') }}">List appointment</a>
+                      </li>
+                    <li>
+                        <a href="{{ path('app_medecin_index') }}"> List medecin</a>
+                     </li>
+                    <li>
+                        {% if app.user %}
+                            <a href="{{ path('app_register') }}">Register</a>
+                            {% else %}
+                        <a href="{{ path('app_login') }}">Login</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </nav>
+        </header>
         {% block body %}{% endblock %}
     </body>
 </html>
